@@ -1,35 +1,35 @@
-NiceAuth | 1.0 By Skrahs
+# NiceAuth | 1.0 By Skrahs
 
-Commands:
+**Commands:**
 /login
 /register
 /changepassword
 /auth
 
-Aliases:
+# Aliases:
 
-Auth:
+**Auth:**
 /a
 /authlogin
 /authregister
 /loginauth
 /registerauth
 
-ChangePassword:
+**ChangePassword:**
 /chp
 /changepass
 /changepassw
 /cpassw
 /changep
 
-Features:
+# Features:
 
 - Optimized
 - Password Crypted
 - Some Aliases
 - Login & Register No command System
 
-Other things:
+# Other things:
 
 Please note that the plugin is spigot only, if you are using it with a proxy (Velocity, BungeeCord etc...) you may have problems.
 

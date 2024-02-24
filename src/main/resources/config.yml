@@ -1,0 +1,34 @@
+#   __    __  __                       ______               __      __
+# |  \  |  \|  \                     /      \             |  \    |  \
+# | $$\ | $$ \$$  _______   ______  |  $$$$$$\ __    __  _| $$_   | $$____
+# | $$$\| $$|  \ /       \ /      \ | $$__| $$|  \  |  \|   $$ \  | $$    \
+# | $$$$\ $$| $$|  $$$$$$$|  $$$$$$\| $$    $$| $$  | $$ \$$$$$$  | $$$$$$$\
+# | $$\$$ $$| $$| $$      | $$    $$| $$$$$$$$| $$  | $$  | $$ __ | $$  | $$
+# | $$ \$$$$| $$| $$_____ | $$$$$$$$| $$  | $$| $$__/ $$  | $$|  \| $$  | $$
+# | $$  \$$$| $$ \$$     \ \$$     \| $$  | $$ \$$    $$   \$$  $$| $$  | $$
+# \$$   \$$ \$$  \$$$$$$$  \$$$$$$$ \$$   \$$  \$$$$$$     \$$$$  \$$   \$$
+#
+#
+
+# NiceAuth 1.0 by Skrahs | @minecraftprotocol on telegram for support
+
+#--------------------------------#
+# !-------   MESSAGES   -------! #
+#--------------------------------#
+
+Login-Correct-Use: "&cCorrect Use: /login <your-password>"
+Not-Registered: "&eYour account is not registered."
+Wrong-Password: "&cWrong Password."
+Login-Succesful: "&aYour login was Succesful!"
+Login-Big-Error: "&cIf you see this error contact the &4Administration Team"
+Welcome-Login-Message: "&cWelcome back to the server, run /login <your-password> to play"
+Only-Login-Phase: "&cYou can only use the /login command during the login phase"
+After-Access: "&cYou cannot use the /register or /login commands after logging in"
+Register-Correct-Use: "&cCorrect Use: /register <your-password> <repeat-your-password>"
+Register-Succesful: "&aYou have been successfully registered"
+Register-Big-Error: "&cIf you see this error contact the Administration Team"
+Register-Kick-Message: "&cHello!, You have been successfully registered, please return to log in."
+Welcome-Register-Message: "&cWelcome to the server Run /register <your-password> <repeat-your-password> to play!"
+Only-Register-Phase: "&cYou can only use the /register command during the registration phase"
+ChangePassw-Correct-Use: "&cCorrect Use: /changepassword <old-password> <new-password>"
+ChangePassw-Success: "&eYou successfully changed your password!"

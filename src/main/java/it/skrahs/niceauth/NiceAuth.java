@@ -7,6 +7,7 @@ import it.skrahs.niceauth.commands.LoginCommand;
 import it.skrahs.niceauth.commands.RegisterCommand;
 import it.skrahs.niceauth.listener.CommandListener;
 import it.skrahs.niceauth.listener.JoinListener;
+import it.skrahs.niceauth.listener.QuitListener;
 import it.skrahs.niceauth.managers.AuthManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,6 +32,7 @@ public final class NiceAuth extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new JoinListener(this), this);
         getServer().getPluginManager().registerEvents(new CommandListener(this), this);
+        getServer().getPluginManager().registerEvents(new QuitListener(this), this);
         getCommand("register").setExecutor(new RegisterCommand(this));
         getCommand("login").setExecutor(new LoginCommand(this));
         getCommand("auth").setExecutor(new AuthCommand());

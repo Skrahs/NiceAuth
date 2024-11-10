@@ -1,0 +1,22 @@
+name: NiceAuth
+version: '1.0-SNAPSHOT'
+main: it.skrahs.niceauth.NiceAuth
+commands:
+  auth:
+    aliases:
+      - a
+      - authlogin
+      - authregister
+      - loginauth
+      - registerauth
+  register:
+  login:
+  Changepassword:
+    aliases:
+      - chp
+      - changepass
+      - changepassw
+      - cpassw
+      - changep
+
+

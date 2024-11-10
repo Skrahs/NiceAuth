@@ -7,16 +7,15 @@ import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class AuthManager {
-    private final Map<UUID, Boolean> registrationInProgressMap = new HashMap<>();
-    private final Map<UUID, Boolean> loginInProgressMap = new HashMap<>();
+    private final List<UUID> registrationInProgressList = new ArrayList<>();
+    private final List<UUID> loginInProgressList = new ArrayList<>();
     private final File file;
     private final FileConfiguration passwords;
-    public AuthManager(){
+
+    public AuthManager() {
         file = new File(NiceAuth.getInstance().getDataFolder(), "passwords.yml");
         passwords = YamlConfiguration.loadConfiguration(file);
     }
@@ -25,7 +24,7 @@ public class AuthManager {
         return passwords;
     }
 
-    public void savePasswords(){
+    public void savePasswords() {
         try {
             passwords.save(file);
         } catch (IOException e) {
@@ -33,28 +32,36 @@ public class AuthManager {
         }
     }
 
-    public void setRegistrationInProgress(Player player, boolean value) {
-        registrationInProgressMap.put(player.getUniqueId(), value);
+    public void setRegistrationInProgress(Player player) {
+        if (registrationInProgressList.contains(player.getUniqueId())) {
+            registrationInProgressList.remove(player.getUniqueId());
+        } else {
+            registrationInProgressList.add(player.getUniqueId());
+        }
     }
 
-    public void setLoginInProgress(Player player, boolean value) {
-        registrationInProgressMap.replace(player.getUniqueId(), false);
-        loginInProgressMap.put(player.getUniqueId(), value);
+    public void setLoginInProgress(Player player) {
+        registrationInProgressList.remove(player.getUniqueId());
+        if (loginInProgressList.contains(player.getUniqueId())) {
+            loginInProgressList.remove(player.getUniqueId());
+        } else {
+            loginInProgressList.add(player.getUniqueId());
+        }
     }
 
-    public void setLoggedIn(Player player, boolean value) {
-        loginInProgressMap.put(player.getUniqueId(), !value);
+    public void setLoggedIn(Player player) {
+        loginInProgressList.remove(player.getUniqueId());
     }
 
     public boolean isRegistrationInProgress(Player player) {
-        return registrationInProgressMap.getOrDefault(player.getUniqueId(), false);
+        return registrationInProgressList.contains(player.getUniqueId());
     }
 
     public boolean isLoginInProgress(Player player) {
-        return loginInProgressMap.getOrDefault(player.getUniqueId(), false);
+        return loginInProgressList.contains(player.getUniqueId());
     }
 
     public boolean isLoggedIn(Player player) {
-        return !loginInProgressMap.getOrDefault(player.getUniqueId(), false);
+        return !loginInProgressList.contains(player.getUniqueId());
     }
 }

@@ -22,7 +22,6 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        String playerName = player.getName();
 
         FileConfiguration config = plugin.getAuthManager().getPasswords();
 
@@ -30,11 +29,11 @@ public class JoinListener implements Listener {
         player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 254, false, false));
         player.setWalkSpeed(0.0f);
 
-        if (!config.contains(playerName)) {
-            plugin.getAuthManager().setRegistrationInProgress(player, true);
+        if (!config.contains(player.getUniqueId().toString())) {
+            plugin.getAuthManager().setRegistrationInProgress(player);
             player.sendMessage(ChatUtils.color(ConfigCache.WELCOME_REGISTER_MESSAGE));
         } else {
-            plugin.getAuthManager().setLoginInProgress(player, true);
+            plugin.getAuthManager().setLoginInProgress(player);
             player.sendMessage(ChatUtils.color(ConfigCache.WELCOME_LOGIN_MESSAGE));
         }
     }

@@ -38,14 +38,13 @@ public class RegisterCommand implements CommandExecutor {
             return true;
         }
 
-        String playerName = player.getName();
         String password = args[0];
         String registrationDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
         FileConfiguration config = plugin.getAuthManager().getPasswords();
 
-        config.set(playerName + ".Password", ChatUtils.encryptPassword(password));
-        config.set(playerName + ".Registration Date", registrationDate);
+        config.set(player.getUniqueId().toString() + ".Password", ChatUtils.encryptPassword(password));
+        config.set(player.getUniqueId().toString() + ".Registration Date", registrationDate);
 
         plugin.getAuthManager().savePasswords();
         player.sendMessage(ChatUtils.color(ConfigCache.REGISTER_SUCCESFUL)); // Register was Succesful

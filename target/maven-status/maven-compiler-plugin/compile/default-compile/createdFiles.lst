@@ -1,0 +1,11 @@
+it\skrahs\niceauth\commands\LoginCommand.class
+it\skrahs\niceauth\listener\QuitListener.class
+it\skrahs\niceauth\NiceAuth.class
+it\skrahs\niceauth\cache\ConfigCache.class
+it\skrahs\niceauth\commands\AuthCommand.class
+it\skrahs\niceauth\listener\JoinListener.class
+it\skrahs\niceauth\commands\ChangepasswordCommand.class
+it\skrahs\niceauth\managers\AuthManager.class
+it\skrahs\niceauth\commands\RegisterCommand.class
+it\skrahs\niceauth\listener\CommandListener.class
+it\skrahs\niceauth\utils\ChatUtils.class

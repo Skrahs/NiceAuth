@@ -28,13 +28,13 @@ public class ChangepasswordCommand implements CommandExecutor {
                 String newPassword = args[1];
                 FileConfiguration config = plugin.getAuthManager().getPasswords();
 
-                String storedPassword = ChatUtils.decryptPassword(config.getString(player.getName() + ".Password"));
+                String storedPassword = ChatUtils.decryptPassword(config.getString(player.getUniqueId().toString() + ".Password"));
                 if(!currentPassword.equals(storedPassword)){
                     player.sendMessage(ChatUtils.color(ConfigCache.WRONG_PASSWORD));
                     return true;
                 }
 
-                config.set(player.getName() + ".Password", ChatUtils.encryptPassword(newPassword));
+                config.set(player.getUniqueId().toString() + ".Password", ChatUtils.encryptPassword(newPassword));
                 plugin.getAuthManager().savePasswords();
                 player.sendMessage(ChatUtils.color(ConfigCache.CHANGEPASS_SUCCESSFULLY));
             }

@@ -33,17 +33,16 @@ public class LoginCommand implements CommandExecutor {
             return true;
         }
 
-        String playerName = player.getName();
         String password = args[0];
 
         FileConfiguration config = plugin.getAuthManager().getPasswords();
 
-        if (!config.contains(playerName)) {
+        if (!config.contains(player.getUniqueId().toString())) {
             player.sendMessage(ChatUtils.color(ConfigCache.NOT_REGISTERED)); // Player NOT REGISTERED
             return true;
         }
 
-        String storedPassword = ChatUtils.decryptPassword(config.getString(playerName + ".Password"));
+        String storedPassword = ChatUtils.decryptPassword(config.getString(player.getUniqueId().toString() + ".Password"));
         if (storedPassword.equals(password)) {
             player.sendMessage(ChatUtils.color(ConfigCache.LOGIN_SUCCESFUL)); // Login Successful
             player.removePotionEffect(PotionEffectType.BLINDNESS);
@@ -51,8 +50,8 @@ public class LoginCommand implements CommandExecutor {
             player.setWalkSpeed(0.2f);
             player.setFlySpeed(0.1f);
 
-            plugin.getAuthManager().setLoginInProgress(player, false);
-            plugin.getAuthManager().setLoggedIn(player, true);
+            plugin.getAuthManager().setLoginInProgress(player);
+            plugin.getAuthManager().setLoggedIn(player);
         } else {
             player.sendMessage(ChatUtils.color(ConfigCache.WRONG_PASSWORD)); // Wrong Password
         }
